@@ -1,1 +1,19 @@
-aaa
+import random
+from datetime import date, timedelta
+
+girls = ["Azarmidokht","Soudabeh","Raha","Aftab","Ariana","Mehrbano","Sepideh","Mana","Dalaram","Farangis"]
+boys  = ["Armin","Behdad","Radin","Farbad","Mani","Sasan","Bardia","Human","Pezhman","Karen"]
+
+random.shuffle(boys)
+
+pairs = list(zip(girls, boys))
+
+base = date.today() + timedelta(days=1)
+days  = [base + timedelta(days=i) for i in range(14)]
+times = ["18:00","19:00","20:00","21:00"]
+
+slots = [(d, t) for d in days for t in times]
+random.shuffle(slots)
+
+for (g, b), (d, t) in zip(pairs, slots):
+    print(f"{g} + {b} --> {d} at {t}")
