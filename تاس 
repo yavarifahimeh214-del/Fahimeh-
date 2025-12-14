@@ -1,0 +1,13 @@
+import random
+
+tries = 1   
+while True:
+    dice = random.randint(1, 6)      
+    user = int(input("enter a number (1-6): "))
+
+    if user == dice:
+        print("you won after", tries, "tries")
+        break
+    else:
+        print("wrong guess!")
+        tries = tries + 1
